@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "name": "Asus",
+        "imageUrl": "https://www.scoop.com.tn/37853-home_default/pc-portable-asus-x515ep-i7-11eme-8go-512go-ssd-nvidia-mx330-156-fhd-grey.jpg",
+        "description" : "ASUS offers innovative and high-performance laptops, perfect for gamers, professionals, and everyday users who seek quality and reliability."
+    },
+    {
+        "id": 2,
+        "name": "Dell",
+        "imageUrl": "https://rukminim2.flixcart.com/image/850/1000/xif0q/computer/i/7/r/latitude-3420-business-laptop-dell-original-imagn6hrwnczrmzv.jpeg?q=90&crop=false",
+        "description" : "Dell's laptops are known for their durability, sleek designs, and powerful performance, making them ideal for both business and personal use."
+    },
+    {
+        "id": 3,
+        "name": "HP",
+        "imageUrl": "https://www.hp.com/fr-fr/shop/Html/Merch/Images/c06588706_1750x1285.jpg",
+        "description" : "HP delivers a diverse range of laptops that combine style and performance, catering to students, professionals, and creatives alike."
+    },
+    {
+        "id": 4,
+        "name": "Gigabyte",
+        "imageUrl": "https://www.gigabyte.com/FileUpload/Global/WebPage/731/images/product/G5VC.png",
+        "description" : "Gigabyte specializes in gaming laptops that offer exceptional performance and cutting-edge technology, perfect for serious gamers."
+    },
+    {
+        "id": 5,
+        "name": "Lenovo",
+        "imageUrl": "https://p1-ofp.static.pub/medias/bWFzdGVyfHJvb3R8MTgyMjJ8aW1hZ2UvanBnfGhhMy9oOTUvMTA3NDQ5NjM4NTg0NjIuanBnfGQ5NDhiMTAwMWEyYzFhNWM0NDExZDNlODczM2RhNzg5NmU5NGU0NTc3M2UxMzJkZjlhMjk2MDg3NGRjNGY4NDk/lenovo-laptop-ideapad-3-15-amd-subseries-gallery-9.jpg",
+        "description" : "Lenovo's laptops are renowned for their versatility and durability, offering innovative features that enhance productivity for both work and play."
+    },
+    {
+        "id": 6,
+        "name": "MSI",
+        "imageUrl": "https://m.media-amazon.com/images/I/61Q1sy6nlBL.jpg",
+        "description" : "MSI is a leader in gaming laptops, providing high-end machines that offer immersive gaming experiences and superior build quality."
+    }
+]
+
+
+
+
+
+
+

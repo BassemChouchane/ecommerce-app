@@ -1,0 +1,19 @@
+.ml {
+  padding: 20px;
+}
+
+.sidebar-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.price-range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.price-range-labels span {
+  font-weight: bold;
+  color: #333;
+}
