@@ -1,7 +1,17 @@
 import React from 'react';
-import { Accordion, AccordionSummary, AccordionDetails, FormControlLabel, Radio, RadioGroup, Typography } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './Spec.css';
+
+const Input = ({ handleChange, value, title, name, color }) => {
+  return (
+    <label className="sidebar-label-container">
+      <input onChange={handleChange} type="radio" value={value} name={name} />
+      <span className="checkmark" style={{ backgroundColor: color }}></span>
+      {title}
+    </label>
+  );
+};
 
 const Spec = ({ handleFilterChange }) => {
   const handleCpuChange = (e) => {
@@ -25,13 +35,11 @@ const Spec = ({ handleFilterChange }) => {
           <Typography variant="subtitle1">CPU</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <RadioGroup onChange={handleCpuChange} name="cpu">
-            <FormControlLabel value="" control={<Radio />} label="All" />
-            <FormControlLabel value="i5" control={<Radio />} label="i5" />
-            <FormControlLabel value="i7" control={<Radio />} label="i7" />
-            <FormControlLabel value="ryzen5" control={<Radio />} label="Ryzen 5" />
-            <FormControlLabel value="ryzen7" control={<Radio />} label="Ryzen 7" />
-          </RadioGroup>
+          <Input handleChange={handleCpuChange} value="" title="All" name="cpu" />
+          <Input handleChange={handleCpuChange} value="i5" title="i5" name="cpu" />
+          <Input handleChange={handleCpuChange} value="i7" title="i7" name="cpu" />
+          <Input handleChange={handleCpuChange} value="Ryzen 5" title="Ryzen 5" name="cpu" />
+          <Input handleChange={handleCpuChange} value="Ryzen 7" title="Ryzen 7" name="cpu" />
         </AccordionDetails>
       </Accordion>
 
@@ -40,11 +48,12 @@ const Spec = ({ handleFilterChange }) => {
           <Typography variant="subtitle1">GPU</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <RadioGroup onChange={handleGpuChange} name="gpu">
-            <FormControlLabel value="" control={<Radio />} label="All" />
-            <FormControlLabel value="rtx3050" control={<Radio />} label="RTX 3050" />
-            <FormControlLabel value="rtx4050" control={<Radio />} label="RTX 4050" />
-          </RadioGroup>
+          <Input handleChange={handleGpuChange} value="" title="All" name="gpu" />
+          <Input handleChange={handleGpuChange} value="RTX 2050" title="RTX 2050" name="gpu" />
+          <Input handleChange={handleGpuChange} value="RTX 3050" title="RTX 3050" name="gpu" />
+          <Input handleChange={handleGpuChange} value="RTX 3060" title="RTX 3060" name="gpu" />
+          <Input handleChange={handleGpuChange} value="RTX 3070TI" title="RTX 3070TI" name="gpu" />
+          <Input handleChange={handleGpuChange} value="RTX 4050" title="RTX 4050" name="gpu" />
         </AccordionDetails>
       </Accordion>
 
@@ -53,14 +62,11 @@ const Spec = ({ handleFilterChange }) => {
           <Typography variant="subtitle1">RAM</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <RadioGroup onChange={handleRamChange} name="ram">
-            <FormControlLabel value="" control={<Radio />} label="All" />
-            <FormControlLabel value="4gb" control={<Radio />} label="4GB" />
-            <FormControlLabel value="8gb" control={<Radio />} label="8GB" />
-            <FormControlLabel value="16gb" control={<Radio />} label="16GB" />
-            <FormControlLabel value="24gb" control={<Radio />} label="24GB" />
-            <FormControlLabel value="32gb" control={<Radio />} label="32GB" />
-          </RadioGroup>
+          <Input handleChange={handleRamChange} value="" title="All" name="ram" />
+          <Input handleChange={handleRamChange} value="8gb" title="8GB" name="ram" />
+          <Input handleChange={handleRamChange} value="16gb" title="16GB" name="ram" />
+          <Input handleChange={handleRamChange} value="24gb" title="24GB" name="ram" />
+          <Input handleChange={handleRamChange} value="32gb" title="32GB" name="ram" />
         </AccordionDetails>
       </Accordion>
     </div>

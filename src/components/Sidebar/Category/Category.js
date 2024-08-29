@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Category.css";
 
-const Input = ({ handleChange, value, title, name, color }) => {
+const Input = ({ handleChange, value, title, name, color, checked }) => {
   return (
     <label className="sidebar-label-container">
-      <input onChange={handleChange} type="radio" value={value} name={name} />
+      <input
+        onChange={handleChange}
+        type="radio"
+        value={value}
+        name={name}
+        checked={checked}
+      />
       <span className="checkmark" style={{ backgroundColor: color }}></span>
       {title}
     </label>
@@ -19,31 +25,33 @@ const Category = ({ handleFilterChange }) => {
   const seriesOptions = {
     Asus: ["TUF Gaming A15", "TUF Gaming F15", "Vivobook 16X", 
       "ROG Strix G16", "ROG Zephyrus G16"],
-    MSI: ["Thin", "Katana","Thin GF63","Cyborg 15"],
-    Lenovo: ["IdeaPad Gaming","Legion", "LOQ"],
-    Dell: ["G15 5530","Inspiron", "Alienware"],
-    Gigabyte: ["G5 MF","Aero"],
-    HP: ["Pavilion", "Omen","Victus 15-fa1003nk"],
+    MSI: ["Thin", "Katana", "Thin GF63", "Cyborg 15"],
+    Lenovo: ["IdeaPad Gaming", "Legion", "LOQ"],
+    Dell: ["G15 5530", "Inspiron", "Alienware"],
+    Gigabyte: ["G5 MF", "Aero"],
+    HP: ["Pavilion", "Omen", "Victus 15-fa1003nk"],
   };
 
   useEffect(() => {
-    // Reset the series filter when the company changes
-    handleFilterChange("series", ""); // Reset series filter
     if (selectedCompany) {
       handleFilterChange("company", selectedCompany);
-      // Automatically select the first series for the selected company
-      const firstSeries = seriesOptions[selectedCompany]?.[0] || "";
-      handleFilterChange("series", firstSeries);
-      setSelectedSeries(firstSeries); // Update state to reflect the first series
+      if (!selectedSeries) {
+        const firstSeries = seriesOptions[selectedCompany]?.[0] || "";
+        setSelectedSeries(firstSeries);
+        handleFilterChange("series", firstSeries);
+      } else {
+        handleFilterChange("series", selectedSeries);
+      }
     } else {
       handleFilterChange("company", "");
-      handleFilterChange("series", ""); // Reset series filter if no company is selected
+      handleFilterChange("series", "");
     }
-  }, [selectedCompany, handleFilterChange]);
+  }, [selectedCompany, selectedSeries, handleFilterChange]);
 
   const handleCompanyChange = (e) => {
     const value = e.target.value;
     setSelectedCompany(value);
+    setSelectedSeries(""); // Reset series when the company changes
   };
 
   const handleSeriesChange = (e) => {
@@ -67,29 +75,62 @@ const Category = ({ handleFilterChange }) => {
           />
           <span className="checkmark"></span>All
         </label>
-        <Input handleChange={handleCompanyChange} value="Asus" title="Asus" name="company" />
-        <Input handleChange={handleCompanyChange} value="MSI" title="MSI" name="company" />
-        <Input handleChange={handleCompanyChange} value="Lenovo" title="Lenovo" name="company" />
-        <Input handleChange={handleCompanyChange} value="Dell" title="Dell" name="company" />
-        <Input handleChange={handleCompanyChange} value="Gigabyte" title="Gigabyte" name="company" />
-        <Input handleChange={handleCompanyChange} value="HP" title="HP" name="company" />
+        <Input
+          handleChange={handleCompanyChange}
+          value="Asus"
+          title="Asus"
+          name="company"
+          checked={selectedCompany === "Asus"}
+        />
+        <Input
+          handleChange={handleCompanyChange}
+          value="MSI"
+          title="MSI"
+          name="company"
+          checked={selectedCompany === "MSI"}
+        />
+        <Input
+          handleChange={handleCompanyChange}
+          value="Lenovo"
+          title="Lenovo"
+          name="company"
+          checked={selectedCompany === "Lenovo"}
+        />
+        <Input
+          handleChange={handleCompanyChange}
+          value="Dell"
+          title="Dell"
+          name="company"
+          checked={selectedCompany === "Dell"}
+        />
+        <Input
+          handleChange={handleCompanyChange}
+          value="Gigabyte"
+          title="Gigabyte"
+          name="company"
+          checked={selectedCompany === "Gigabyte"}
+        />
+        <Input
+          handleChange={handleCompanyChange}
+          value="HP"
+          title="HP"
+          name="company"
+          checked={selectedCompany === "HP"}
+        />
       </div>
 
       {selectedCompany && (
         <div>
           <h3 className="sidebar-title">Series</h3>
-          <label className="sidebar-label-container">
-            <input
-              onChange={handleSeriesChange}
-              type="radio"
-              value=""
+          {seriesOptions[selectedCompany]?.map((series) => (
+            <Input
+              key={series}
+              handleChange={handleSeriesChange}
+              value={series}
+              title={series}
               name="series"
-              checked={selectedSeries === ""}
+              checked={selectedSeries === series}
             />
-            <span className="checkmark"></span>All
-          </label>
-          {seriesOptions[selectedCompany].map((series) => (
-            <Input key={series} handleChange={handleSeriesChange} value={series} title={series} name="series" />
           ))}
         </div>
       )}

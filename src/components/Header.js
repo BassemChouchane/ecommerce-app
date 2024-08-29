@@ -15,7 +15,7 @@ export default function Header (){
                 <NavLink to="home"><img src={logo} /></NavLink>
             </Tooltip>
             <div className="navbar">
-                <NavLink to="home" className="linkPages">Home</NavLink>
+                <NavLink to="/" className="linkPages">Home</NavLink>
                 <NavLink to="Products" className="linkPages">Products</NavLink>
                 <NavLink to="About" className="linkPages">About</NavLink> 
                 <NavLink to="Contact" className="linkPages">Contact</NavLink> 

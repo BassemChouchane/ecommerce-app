@@ -1,6 +1,6 @@
 import './App.css';
 import Layout from './components/Layout';
-import { BrowserRouter , Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import { Contact } from './Pages/Contact';
 import About from './Pages/About';
@@ -9,21 +9,20 @@ import ContactCredentials from './components/ContactCredentials';
 import SingleProduct from './Pages/SingleProduct';
 
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-        <Route path="/" element={<Layout />} >
-          <Route path="home" element={<Home />} />
-          <Route path="products" element={<Products />} >
-            {/*   */}
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} /> 
+            <Route path="products" element={<Products />} >
+              
+            </Route>
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />}>
+              <Route path="." element={<ContactCredentials />} />
+            </Route>
           </Route>
-          <Route path="about" element={<SingleProduct />} />
-          <Route path="contact" element={<Contact />} >
-            <Route path="." element={<ContactCredentials />} />
-          </Route>
-        </Route>
         </Routes>
       </BrowserRouter>
     </div>

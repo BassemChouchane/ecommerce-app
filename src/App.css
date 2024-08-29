@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 *{
   margin : 0;
   font-family: Roboto;
@@ -48,15 +47,8 @@ body {
   background-color: #353b48;
   color: #f3a683;
   border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
   transform: translateY(-2px);
-  -webkit-transform: translateY(-2px);
-  -moz-transform: translateY(-2px);
-  -ms-transform: translateY(-2px);
-  -o-transform: translateY(-2px);
+
 }
 .navbar .linkPages:active{
   box-shadow: none;
@@ -68,7 +60,7 @@ body {
 }
 /* Footer */
 
-.footer {
+/*.footer {
   margin-top: auto;
   display: flex;
   justify-content: space-between;
@@ -76,7 +68,7 @@ body {
   background-color: #f3a683;
   padding: 1em;
 }
-
+*/
 .smIcons *{
   margin-right: 50px; 
 }
@@ -161,6 +153,7 @@ ul {
   margin-top: 5%;
 }
 
+
 .searchList {
   width: 70%;
   padding: 5%;
@@ -199,6 +192,7 @@ ul {
   display : flex ;
   background-image: url(../src/assets/50-Beautiful-and-Minimalist-Presentation-Backgrounds-042.jpg);
   background-size: cover;
+  z-index: 1;
 }
 .contact {
   display: flex;

@@ -1,0 +1,18 @@
+.sorting-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sorting-label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .sorting-select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
