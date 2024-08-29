@@ -22,7 +22,7 @@ export default function CategoryDetail(props) {
                         {props.description}
                     </Typography>
                 </AccordionDetails>
-                <Link to={`/products?company=${encodeURIComponent(props.name)}`}>
+                <Link to={`/products`}>
                     <button variant="contained" color="primary" className="button-28">
                         View All
                     </button>

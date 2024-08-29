@@ -6,7 +6,7 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import { filterProducts } from '../utils/filterFunctions';
 import Loading from '../components/Loading';
 import Sorting from '../components/Sorting/Sorting';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export default function Products() {
     const [products, setProducts] = useState([]);
@@ -15,7 +15,6 @@ export default function Products() {
     const [filters, setFilters] = useState({ color: '', company: '', series: '', price: { min: 0, max: 12000 } });
     const [sort, setSort] = useState('lowest');
     const location = useLocation();
-    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,32 +25,26 @@ export default function Products() {
                 }
                 const data = await response.json();
                 setProducts(data);
+                setFilteredProducts(data);
                 setIsLoading(false);
             } catch (error) {
                 console.error('There has been a problem with your fetch operation:', error);
             }
         };
 
-        fetchData();
+        setTimeout(() => fetchData(), 500); // just for testing delay
     }, []);
-
+/*
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
         const type = queryParams.get('type');
-        
-        // Update filters based on query parameter
         if (type) {
-            setFilters(prevFilters => ({
+            setFilters((prevFilters) => ({
                 ...prevFilters,
-                company: type // Use company filter to match the type
-            }));
-        } else {
-            setFilters(prevFilters => ({
-                ...prevFilters,
-                company: '' // Reset filter when no type is specified
+                company: type // Assuming company and type are used interchangeably in your filters
             }));
         }
-    }, [location.search]);
+    }, [location.search]); */
 
     useEffect(() => {
         let sortedProducts = filterProducts(products, filters);
@@ -64,22 +57,16 @@ export default function Products() {
     }, [filters, products, sort]);
 
     const handleFilterChange = (type, value) => {
-        // Update filter and URL
-        setFilters(prevFilters => ({
+        setFilters((prevFilters) => ({
             ...prevFilters,
             [type]: value
         }));
-        if (value) {
-            navigate(`/products?type=${encodeURIComponent(value)}`);
-        } else {
-            navigate('/products'); // Clear query parameter when filter is reset
-        }
     };
 
     const handleSortChange = (value) => {
         setSort(value);
     };
-
+    
     const [page, setPage] = useState(1);
     const PerPage = 9;
     const count = Math.ceil(filteredProducts.length / PerPage);
@@ -96,11 +83,14 @@ export default function Products() {
                 <Loading />
             ) : (
                 <>
+                    {/* Main Container */}
                     <Box display="flex" flexDirection="row" flex="1">
+                        {/* Sidebar */}
                         <Box style={{ flex: '1 1 20%', maxWidth: '20%' }}>
                             <Sidebar handleFilterChange={handleFilterChange} />
                         </Box>
 
+                        {/* Products Grid and Sorting */}
                         <Box style={{ flex: '1 1 80%', maxWidth: '80%', padding: '1rem' }}>
                             <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem' }}>
                                 <Sorting handleSortChange={handleSortChange} />
@@ -117,6 +107,7 @@ export default function Products() {
                                     </Grid>
                                 ))}
                             </Grid>
+                            {/* Pagination */}
                             <Box mt={4} display="flex" justifyContent="center" className="pagination-container">
                                 <Pagination
                                     count={count}
