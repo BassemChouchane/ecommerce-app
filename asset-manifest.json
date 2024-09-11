@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/ecommerce-app/static/css/main.e33634c4.css",
+    "main.js": "/ecommerce-app/static/js/main.9b71b693.js",
+    "static/media/desk-concept-cyber-monday.jpg": "/ecommerce-app/static/media/desk-concept-cyber-monday.2af431562a52ecf53fed.jpg",
+    "static/media/pngwing.com.png": "/ecommerce-app/static/media/pngwing.com.a4b116b6d646c4f391fa.png",
+    "static/media/50-Beautiful-and-Minimalist-Presentation-Backgrounds-042.jpg": "/ecommerce-app/static/media/50-Beautiful-and-Minimalist-Presentation-Backgrounds-042.4f30362b05fd7b7a1939.jpg",
+    "static/media/contactPicture.png": "/ecommerce-app/static/media/contactPicture.58eccb3170d4e5aba871.png",
+    "index.html": "/ecommerce-app/index.html",
+    "main.e33634c4.css.map": "/ecommerce-app/static/css/main.e33634c4.css.map",
+    "main.9b71b693.js.map": "/ecommerce-app/static/js/main.9b71b693.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e33634c4.css",
+    "static/js/main.9b71b693.js"
+  ]
+}
