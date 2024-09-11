@@ -1,5 +1,4 @@
-// src/context/CartContext.js
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
@@ -7,32 +6,36 @@ export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
-    // Initialize cartItems from localStorage if available
-    const savedCart = localStorage.getItem('cartItems');
+    const savedCart = sessionStorage.getItem('cartItems');
     return savedCart ? JSON.parse(savedCart) : [];
   });
+
   const [cartItemCount, setCartItemCount] = useState(() => {
-    // Initialize cartItemCount based on cartItems
     return cartItems.reduce((count, item) => count + item.quantity, 0);
   });
 
-  const updateLocalStorage = (items) => {
-    localStorage.setItem('cartItems', JSON.stringify(items));
-  };
+  // Update sessionStorage whenever cartItems change
+  useEffect(() => {
+    sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (product) => {
     setCartItems((prevItems) => {
-      const updatedItems = [...prevItems];
-      const existingItem = updatedItems.find(item => item.id === product.id);
-      
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
+      const updatedItems = prevItems.map(item => {
+        if (item.id === product.id) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+
+      // Check if the item was not already in the cart
+      const itemExists = updatedItems.some(item => item.id === product.id);
+      if (!itemExists) {
         updatedItems.push({ ...product, quantity: 1 });
       }
-      
-      updateLocalStorage(updatedItems);
-      setCartItemCount(updatedItems.reduce((count, item) => count + item.quantity, 0));
+
+      const newCount = updatedItems.reduce((count, item) => count + item.quantity, 0);
+      setCartItemCount(newCount);
       return updatedItems;
     });
   };
@@ -41,13 +44,17 @@ export const CartProvider = ({ children }) => {
     setCartItems((prevItems) => {
       const updatedItems = prevItems.map(item => {
         if (item.id === productId) {
-          return { ...item, quantity: item.quantity - 1 };
+          if (item.quantity > 1) {
+            return { ...item, quantity: item.quantity - 1 };
+          } else {
+            return null; // Mark item for removal
+          }
         }
         return item;
-      }).filter(item => item.quantity > 0);
-      
-      updateLocalStorage(updatedItems);
-      setCartItemCount(updatedItems.reduce((count, item) => count + item.quantity, 0));
+      }).filter(item => item !== null); // Remove items marked for removal
+
+      const newCount = updatedItems.reduce((count, item) => count + item.quantity, 0);
+      setCartItemCount(newCount);
       return updatedItems;
     });
   };
