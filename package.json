@@ -2,7 +2,6 @@
   "name": "ecommerce-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bassemchouchane.github.io/ecommerce-app/",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.13.3",
@@ -26,9 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -55,4 +52,5 @@
     "tailwindcss": "^3.4.10",
     "url-loader": "^4.1.1"
   }
+  
 }
