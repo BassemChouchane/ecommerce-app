@@ -28,7 +28,7 @@ const Spec = ({ handleFilterChange }) => {
 
   return (
     <div>
-      <Typography variant="h6" className="sidebar-title">Specifications</Typography>
+      <Typography variant="h6" className="sidebar-title" >Specifications</Typography>
 
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
