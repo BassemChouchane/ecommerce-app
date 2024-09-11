@@ -15,9 +15,12 @@ export default function ContactCredentials () {
 
     return (
       <Box className='ContactCreds'>
-        <div>
+        <div style={{display : "flex"}}> 
             <EmailOutlinedIcon />
-            <span>unknown@gmail.com</span>
+            <div className='emailCreds' style={{marginBottom : 0}}>
+                <span className="user-name" >unknown</span>
+                <div className="email-domain">@gmail.com</div>
+            </div>
         </div>
         <div>
             <PhoneInTalkOutlinedIcon />

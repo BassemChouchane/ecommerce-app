@@ -7,6 +7,7 @@ import { filterProducts } from '../utils/filterFunctions';
 import Loading from '../components/Loading';
 import Sorting from '../components/Sorting/Sorting';
 import { useLocation } from 'react-router-dom';
+import { WidthFull } from '@mui/icons-material';
 
 export default function Products() {
     const [products, setProducts] = useState([]);
@@ -78,31 +79,33 @@ export default function Products() {
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1  }}>
             {isLoading ? (
                 <Loading />
             ) : (
                 <>
                     {/* Main Container */}
-                    <Box display="flex" flexDirection="row" flex="1">
+                    <Box display="flex" flexDirection="row" flex="1" >
                         {/* Sidebar */}
                         <Box style={{ flex: '1 1 20%', maxWidth: '20%' }}>
                             <Sidebar handleFilterChange={handleFilterChange} />
                         </Box>
 
                         {/* Products Grid and Sorting */}
-                        <Box style={{ flex: '1 1 80%', maxWidth: '80%', padding: '1rem' }}>
+                        <Box style={{ flex: '1 1 80%', maxWidth: '70%', padding: '1rem' }}>
                             <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem' }}>
                                 <Sorting handleSortChange={handleSortChange} />
                             </div>
-                            <Grid container spacing={2} className="productsGrid">
+                            <Grid container spacing={1} className="productsGrid" style={{minHeight : "1200px"}}>
                                 {data.currentData().map((product) => (
                                     <Grid item xs={12} sm={6} md={4} key={product.id}>
                                         <ProductCard
+                                            key={product.id}
                                             name={product.title}
                                             imageUrl={product.imageUrl}
                                             rating={product.rating}
                                             price={product.price}
+                                            id={product.id}
                                         />
                                     </Grid>
                                 ))}

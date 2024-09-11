@@ -35,7 +35,7 @@ export default function Footer1() {
                 Licensing
               </FooterLink>
               <FooterLink 
-                href="#"
+                href="/contact"
                 className="text-xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 Contact

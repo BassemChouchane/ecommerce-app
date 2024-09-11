@@ -3,8 +3,11 @@ import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from 'f
 import { Link } from 'react-router-dom';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import logo from "../../assets/pngwing.com.png";
+import { useCart } from '../../context/CartContext'; 
 
 export default function Header1() {
+  const { cartItemCount } = useCart(); 
+
   return (
     <Navbar
       fluid
@@ -48,9 +51,16 @@ export default function Header1() {
         <NavbarLink
           as={Link}
           to="/cart"
-          className="text-xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center"
+          className="text-xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center relative"
         >
           <AddShoppingCartIcon fontSize="large" />
+{cartItemCount > 0 && (
+  <span className="absolute top-0 right-0 translate-x-1 -translate-y-1/2 bg-blue-600 dark:bg-blue-400 text-white rounded-full px-2 py-1 text-xs">
+    {cartItemCount}
+  </span>
+)}
+
+
         </NavbarLink>
       </NavbarCollapse>
     </Navbar>

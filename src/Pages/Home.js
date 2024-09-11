@@ -85,7 +85,7 @@ export default function Home(){
                     <li className='searchList' key={product.id} >
                         
                         <Link to={`/products/${product.id}`}>
-                            {product.title} 
+                            {removeLastNWords(`${product.title}`,6)}
                         </Link>
                         
                     </li> 

@@ -1,6 +1,7 @@
 import { Card } from "flowbite-react";
 import React, { useState, useEffect } from "react";
 import Rating from "./Rating";
+import { Link } from "react-router-dom";
 
 export default function Component(props) {
 /* random values */
@@ -46,9 +47,9 @@ export default function Component(props) {
               - {difference} DT
             </div>
           </div>
-          <a href="#" className="button" onClick={handleClick}>
+          <Link to={`/products/${props.id}`} className="button" >
             Shop
-          </a>
+          </Link>
         </div>
       </div>
     </Card>

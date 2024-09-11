@@ -1,6 +1,4 @@
 import React from 'react';
-import Nav from './Header';
-import Footer from '../components/Footer';
 import { Outlet } from 'react-router-dom';
 import { Box } from '@mui/material';
 import Header1 from './Header1/Header1'
