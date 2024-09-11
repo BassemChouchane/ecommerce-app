@@ -14,7 +14,6 @@ export const CartProvider = ({ children }) => {
     return cartItems.reduce((count, item) => count + item.quantity, 0);
   });
 
-  // Update sessionStorage whenever cartItems change
   useEffect(() => {
     sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
@@ -28,7 +27,6 @@ export const CartProvider = ({ children }) => {
         return item;
       });
 
-      // Check if the item was not already in the cart
       const itemExists = updatedItems.some(item => item.id === product.id);
       if (!itemExists) {
         updatedItems.push({ ...product, quantity: 1 });
