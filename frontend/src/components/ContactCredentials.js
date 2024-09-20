@@ -18,7 +18,7 @@ export default function ContactCredentials () {
         <div style={{display : "flex"}}> 
             <EmailOutlinedIcon />
             <div className='emailCreds' style={{marginBottom : 0}}>
-                <span className="user-name" >unknown</span>
+                <span className="user-name" >MyLaptop</span>
                 <div className="email-domain">@gmail.com</div>
             </div>
         </div>

@@ -31,7 +31,7 @@ export default function Header1() {
           alt="Flowbite React Logo"
         />
         <span className="self-center text-2xl font-bold whitespace-nowrap">
-          UnKnown
+          MyLaptop
         </span>
       </NavbarBrand>
       <NavbarToggle className="lg:hidden" />

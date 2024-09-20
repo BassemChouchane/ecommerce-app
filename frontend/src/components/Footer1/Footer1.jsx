@@ -46,7 +46,7 @@ export default function Footer1() {
         <FooterDivider className="my-2" />
         <FooterCopyright 
           href="#" 
-          by="UnKnown" 
+          by="MyLaptop" 
           className="text-xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           year={2024} 
         />
