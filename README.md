@@ -16,22 +16,22 @@ Avant de lancer l'application, vous devez installer les éléments suivants sur 
 1. Clonez le projet :
 ```bash
    git clone https://github.com/votre-nom-utilisateur/nom-du-projet.git
-
+```
 2. Accédez au dossier `Backend` et installez les dépendances nécessaires :
-
+```bash
    cd nom-du-projet/Backend
    npm install
-
+```
 3. Démarrez MongoDB localement sur `localhost:27017` :
-
+```bash
    mongod
-
+```
 4. Lancez le serveur backend :
-
+```bash
    npm start
-
+```
 5. Accédez à l'application sur le navigateur à l'adresse suivante :
-
+```bash
    http://localhost:5000
-
+```
 
