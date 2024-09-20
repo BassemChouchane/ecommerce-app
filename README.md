@@ -15,7 +15,7 @@ Avant de lancer l'application, vous devez installer les éléments suivants sur 
 
 1. Clonez le projet :
 ```bash
-   git clone https://github.com/votre-nom-utilisateur/nom-du-projet.git](https://github.com/BassemChouchane/ecommerce-app
+   git clone https://github.com/BassemChouchane/ecommerce-app
 ```
 2. Accédez au dossier `Backend` et installez les dépendances nécessaires :
 ```bash
